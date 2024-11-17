@@ -14,11 +14,13 @@ vim.g.maplocalleader = "\\"
 require("lazy").setup({
 	spec = {
 		require("plugins.init"),
+		require("plugins.colorizer"),
 		require("plugins.treesitter"),
 		require("plugins.telescope"),
 		require("plugins.nvim-tree"),
 		require("plugins.lualine"),
 		require("plugins.alpha"),
+		require("plugins.baleia"),
 		require("plugins.sonokai-theme"),
 		require("plugins.cmp"),
 		require("plugins.oil"),

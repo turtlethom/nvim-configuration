@@ -25,7 +25,6 @@ opt.smartcase = true -- Override 'ignorecase' if search contains uppercase lette
 opt.cursorline = true -- Highlight the line where the cursor is located
 
 -- Enable true colors for better color schemes
-opt.termguicolors = true -- Enable 24-bit RGB colors
 opt.background = "dark" -- Set background theme to dark
 opt.signcolumn = "yes" -- Keep the sign column open to prevent text shifting
 
