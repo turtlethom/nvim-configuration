@@ -140,6 +140,29 @@ return {
 					},
 				})
 			end,
+			["powershell_es"] = function()
+				lspconfig["powershell_es"].setup({
+					cmd = {
+						"pwsh", -- Path to PowerShell executable
+						"-NoLogo", -- Suppress startup logo
+						"-NoProfile", -- Don't load PowerShell profile
+						"-Command",
+						"C:/path/to/PowerShellEditorServices/Start-EditorServices.ps1", -- Adjust this path
+						"-HostName",
+						"nvim",
+						"-HostProfileId",
+						"0",
+						"-LogPath",
+						"C:/path/to/logfile.log", -- Adjust or omit this path
+						"-LogLevel",
+						"Normal",
+						"-SessionDetailsPath",
+						"C:/path/to/session.json", -- Adjust or omit this path
+						"-Stdio",
+					},
+					filetypes = { "ps1", "psm1", "psd1" }, -- PowerShell filetypes
+				})
+			end,
 		})
 	end,
 }

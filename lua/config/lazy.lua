@@ -6,10 +6,6 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Set leader keys
-vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
-
 -- Load plugins using Lazy.nvim
 require("lazy").setup({
 	spec = {
@@ -17,11 +13,11 @@ require("lazy").setup({
 		require("plugins.colorizer"),
 		require("plugins.treesitter"),
 		require("plugins.telescope"),
-		require("plugins.nvim-tree"),
-		require("plugins.dressing"),
+		-- require("plugins.nvim-tree"),
+		-- require("plugins.dressing"),
 		require("plugins.lualine"),
-		require("plugins.alpha"),
-		require("plugins.baleia"),
+		-- require("plugins.alpha"),
+		require("plugins.dashboard"),
 		require("plugins.sonokai-theme"),
 		require("plugins.cmp"),
 		require("plugins.oil"),

@@ -11,7 +11,8 @@ return {
 				["q"] = "actions.close",
 				["<leader>q"] = function()
 					require("oil").close()
-					require("alpha").start()
+					-- require("alpha").start()
+					vim.cmd("Dashboard")
 				end,
 			},
 			view_options = {

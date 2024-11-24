@@ -1,6 +1,9 @@
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
+-- Disabling Leader Key In Insert Mode
+keymap.set("i", "<space>", "<space>", opts)
+
 -- Remove Highlighting
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
@@ -16,7 +19,9 @@ keymap.set("n", "<C-/>/", "gcc", { desc = "Comment out line(s) of code" })
 keymap.set("n", "<Leader>w", ":update<Return>", opts)
 keymap.set("n", "<Leader>q", function()
 	vim.cmd("bd!")
-	require("alpha").start()
+	-- require("alpha").start()
+	vim.cmd("Dashboard")
+	-- require("snacks").dashboard.open()
 end, opts)
 keymap.set("n", "<Leader>Q", ":q!<Return>", opts)
 
@@ -36,4 +41,9 @@ keymap.set("n", "<leader>tn", "<CMD>tabn<CR>", { desc = "Go to next tab" }) --  
 keymap.set("n", "<leader>tp", "<CMD>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 keymap.set("n", "<leader>tf", "<CMD>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 
+-- Opening Oil.nvim
 keymap.set("n", "<leader>o", "<CMD>Oil<CR>", { desc = "Open Oil" }) -- open Oil buffer from file edits
+
+-- Fold Open/Close Remaps
+keymap.set("n", "<leader>u", "zo", { desc = "Open/unfold fold" })
+keymap.set("n", "<leader>h", "zc", { desc = "Close/hide fold" })
