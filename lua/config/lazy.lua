@@ -16,7 +16,7 @@ require("lazy").setup({
 		-- require("plugins.telescope"),
 		-- require("plugins.nvim-tree"),
 		-- require("plugins.dressing"),
-		-- require("plugins.lualine"),
+		require("plugins.lualine"),
 		-- require("plugins.alpha"),
 		require("plugins.dashboard"),
 		require("plugins.sonokai-theme"),
