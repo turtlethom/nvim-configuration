@@ -114,10 +114,10 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
-
 return {
 	{
 		"nvimdev/dashboard-nvim",
+    event = "VimEnter",
 		opts = {
 			theme = "doom",
 			config = {

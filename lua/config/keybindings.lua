@@ -42,7 +42,11 @@ keymap.set("n", "<leader>tp", "<CMD>tabp<CR>", { desc = "Go to previous tab" }) 
 keymap.set("n", "<leader>tf", "<CMD>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 
 -- Opening Oil.nvim
-keymap.set("n", "<leader>o", "<CMD>Oil<CR>", { desc = "Open Oil" }) -- open Oil buffer from file edits
+keymap.set("n", "<leader>o", function()
+  vim.cmd("bd")
+  vim.cmd("Oil")
+end,
+  { desc = "Open Oil" }) -- open Oil buffer from file edits
 
 -- Fold Open/Close Remaps
 keymap.set("n", "<leader>u", "zo", { desc = "Open/unfold fold" })
