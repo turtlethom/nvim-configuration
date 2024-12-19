@@ -26,7 +26,7 @@ require("lazy").setup({
 		-- require("plugins.surround"),
 		-- require("plugins.todo-comments"),
 		-- require("plugins.toggleterm"),
-		-- require("plugins.bufferline"),
+		require("plugins.bufferline"),
 		{ import = "plugins.lsp" },
 	},
 	install = { colorscheme = { "habamax" } },
