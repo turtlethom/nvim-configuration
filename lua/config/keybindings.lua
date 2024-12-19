@@ -18,7 +18,7 @@ keymap.set("n", "<C-/>/", "gcc", { desc = "Comment out line(s) of code" })
 -- Saving & Quitting Files
 keymap.set("n", "<Leader>w", ":update<Return>", opts)
 keymap.set("n", "<Leader>q", function()
-	vim.cmd("bd!")
+	vim.cmd("bw!")
 	-- require("alpha").start()
 	vim.cmd("Dashboard")
 	-- require("snacks").dashboard.open()
@@ -43,7 +43,7 @@ keymap.set("n", "<leader>tf", "<CMD>tabnew %<CR>", { desc = "Open current buffer
 
 -- Opening Oil.nvim
 keymap.set("n", "<leader>o", function()
-  vim.cmd("bd")
+  vim.cmd("bw!")
   vim.cmd("Oil")
 end,
   { desc = "Open Oil" }) -- open Oil buffer from file edits
