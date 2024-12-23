@@ -22,7 +22,7 @@ require("lazy").setup({
 		require("plugins.oil"),
 		-- require("plugins.autopairs"),
 		-- require("plugins.surround"),
-		-- require("plugins.todo-comments"),
+		require("plugins.todo-comments"),
 		require("plugins.bufferline"),
 		{ import = "plugins.lsp" },
 	},

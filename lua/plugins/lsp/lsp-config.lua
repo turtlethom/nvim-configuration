@@ -53,20 +53,8 @@ return {
 			})
 
 			-- Python (pylsp) Server
+      -- TODO : Fix pyright not autocompleting with snippets
 			require("lspconfig").pyright.setup({
-
-				-- settings = {
-				-- 	pylsp = {
-				-- 		plugins = {
-				-- 			pycodestyle = {
-				-- 				ignore = { "W391" },
-				-- 				maxLineLength = 100,
-				-- 			},
-				--           pyls_mypy = { enabled = true },
-				--           pyls_rope = { enabled = true },
-				-- 		},
-				-- 	},
-				-- },
 			})
 			-- Svelte Language Server
 			lspconfig.svelte.setup({
