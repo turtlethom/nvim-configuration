@@ -26,7 +26,7 @@ return {
 			local lspconfig = require("lspconfig")
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-      -- Lua Language Server
+			-- Lua Language Server
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
 				settings = {
@@ -47,24 +47,50 @@ return {
 				},
 			})
 
-      -- TypeScript Language Server
+			-- TypeScript Language Server
 			lspconfig.ts_ls.setup({
 				capabilities = capabilities,
 			})
-      -- Svelte Language Server
-      lspconfig.svelte.setup({
-        capabilities = capabilities,
-        on_attack = function(client, _)
-          vim.api.nvim_create_autocmd("BufWritePost", {
-            pattern = { "*.js", "*.ts" },
-            callback = function(ctx)
-              client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
-            end,
-          })
-        end,
-      })
 
-      -- Powershell Language Server
+			-- Python (pylsp) Server
+			require("lspconfig").pyright.setup({
+
+				-- settings = {
+				-- 	pylsp = {
+				-- 		plugins = {
+				-- 			pycodestyle = {
+				-- 				ignore = { "W391" },
+				-- 				maxLineLength = 100,
+				-- 			},
+				--           pyls_mypy = { enabled = true },
+				--           pyls_rope = { enabled = true },
+				-- 		},
+				-- 	},
+				-- },
+			})
+			-- Svelte Language Server
+			lspconfig.svelte.setup({
+				capabilities = capabilities,
+				on_attack = function(client, _)
+					vim.api.nvim_create_autocmd("BufWritePost", {
+						pattern = { "*.js", "*.ts" },
+						callback = function(ctx)
+							client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
+						end,
+					})
+				end,
+			})
+
+			-- Powershell Language Server
+			lspconfig.powershell_es.setup({
+				capabilities = capabilities,
+				filetypes = { "ps1", "psm1", "psd1" },
+				bundle_path = "~/.local/share/nvim/mason/packages/powershell-editor-services",
+				settings = { powershell = { codeFormatting = { Preset = "OTBS" } } },
+				init_options = {
+					enableProfileLoading = false,
+				},
+			})
 
 			vim.keymap.set("n", "<leader>gh", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
