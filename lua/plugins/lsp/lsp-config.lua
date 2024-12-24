@@ -53,9 +53,12 @@ return {
 			})
 
 			-- Python (pylsp) Server
-      -- TODO : Fix pyright not autocompleting with snippets
-			require("lspconfig").pyright.setup({
-			})
+			-- lspconfig.pyright.setup({
+			--      capabilities = capabilities,
+			-- })
+
+      -- Python (Jedi) Server
+      lspconfig.jedi_language_server.setup({})
 			-- Svelte Language Server
 			lspconfig.svelte.setup({
 				capabilities = capabilities,
