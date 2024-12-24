@@ -54,7 +54,7 @@ keymap.set("n", "<leader>tf", "<CMD>tabnew %<CR>", { desc = "Open current buffer
 
 -- Opening Oil.nvim
 keymap.set("n", "<leader>o", function()
-  vim.cmd("bw!")
+  -- vim.cmd("bw!")
   vim.cmd("Oil")
 end,
   { desc = "Open Oil" }) -- open Oil buffer from file edits
