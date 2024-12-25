@@ -9,7 +9,7 @@ keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
 -- Movement Remappings
 keymap.set("i", "jk", "<Esc>", opts)
-keymap.set("v", "jk", "<Esc>", opts)
+keymap.set("v", "<leader>x", "<Esc>", opts)
 
 -- Handle System Clipboard Copy
 keymap.set("n", "<leader>y", "\"+y")
@@ -51,23 +51,6 @@ keymap.set("n", "<leader>tx", "<CMD>tabclose<CR>", { desc = "Close current tab" 
 keymap.set("n", "<leader>tn", "<CMD>tabn<CR>", { desc = "Go to next tab" }) --  go to next tab
 keymap.set("n", "<leader>tp", "<CMD>tabp<CR>", { desc = "Go to previous tab" }) --  go to previous tab
 keymap.set("n", "<leader>tf", "<CMD>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
-
--- Opening Oil.nvim
-keymap.set("n", "<leader>o", function()
-  -- vim.cmd("bw!")
-  vim.cmd("Oil")
-end,
-  { desc = "Open Oil" }) -- open Oil buffer from file edits
-
--- Help Buffer Quit Remap
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "help",
-    callback = function()
-        -- Remap <leader>q to :q in help buffers
-        vim.api.nvim_buf_set_keymap(0, "n", "<leader>q", ":q<CR>", { noremap = true, silent = true })
-    end,
-})
-
 
 -- Fold Open/Close Remaps
 keymap.set("n", "<leader>u", "zo", { desc = "Open/unfold fold" })

@@ -1,3 +1,4 @@
+-- Terminal Background Color = #1F1E1C
 return {
   {
         'sainnhe/sonokai',
