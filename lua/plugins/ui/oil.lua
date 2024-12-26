@@ -12,7 +12,7 @@ return {
 				["<leader>q"] = function()
 					require("oil").close()
 					-- require("alpha").start()
-					vim.cmd("Dashboard")
+					vim.cmd(":q!")
 				end,
 			},
 			view_options = {

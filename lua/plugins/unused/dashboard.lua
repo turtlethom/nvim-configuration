@@ -2,20 +2,13 @@ local assets_path = vim.fn.stdpath("config") .. "/assets" -- Grabs Neovim's conf
 local ascii_art_path = assets_path .. "/colorized.txt"
 local LINES_PER_FILE = 10
 
-local header = {
-	-- "                                                                                        ",
-	-- "                                                                                        ",
-	-- "                                                                                        ",
-	-- "████████╗██╗   ██╗███████╗████████╗██╗     ███████╗████████╗██╗  ██╗ ██████╗ ███╗   ███╗",
-	-- "╚══██╔══╝██║   ██║██╔══██║╚══██╔══╝██║     ██╔════╝╚══██╔══╝██║  ██║██╔═══██╗████╗ ████║",
-	-- "   ██║   ██║   ██║██████╔╝   ██║   ██║     █████╗     ██║   ███████║██║   ██║██╔████╔██║",
-	-- "   ██║   ██║   ██║██╔══██╗   ██║   ██║     ██╔══╝     ██║   ██╔══██║██║   ██║██║╚██╔╝██║",
-	-- "   ██║   ╚██████╔╝██║  ██║   ██║   ███████╗███████╗   ██║   ██║  ██║╚██████╔╝██║ ╚═╝ ██║",
-	-- "   ╚═╝    ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚══════╝╚══════╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝",
-	-- "                                                                                        ",
-	-- "                                                                                        ",
-	-- "                                                                                        ",
-}
+-- local stats = require("lazy").stats()
+-- local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
+
+-- "",
+-- "-- ⚡ LazyVim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins   in " .. ms .. "ms --",
+-- "",
+
 local center = {
 	{
 		desc = "Find File ",
@@ -120,8 +113,9 @@ return {
 		opts = {
 			theme = "doom",
 			config = {
-				header = header,
+				header = nil,
 				center = center,
+				-- footer = {},
 			},
 			preview = preview,
 		},

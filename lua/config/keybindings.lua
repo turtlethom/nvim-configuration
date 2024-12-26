@@ -18,10 +18,9 @@ keymap.set("n", "<C-/>/", "gcc", { desc = "Comment out line(s) of code" })
 -- Saving & Quitting Files
 keymap.set("n", "<Leader>w", ":update<Return>", opts)
 keymap.set("n", "<Leader>q", function()
-	vim.cmd("bd!")
-	-- require("alpha").start()
-	vim.cmd("Dashboard")
-	-- require("snacks").dashboard.open()
+	vim.cmd("bw!")
+	vim.cmd(":q!")
+	-- vim.cmd("Dashboard")
 end, opts)
 keymap.set("n", "<Leader>Q", ":q!<Return>", opts)
 

@@ -13,16 +13,4 @@ Util.colors = {
 	neonpink = "#FF0080",
 }
 
-Util.apply_random_highlights = function()
-	local highlights = {}
-
-	-- Generate random highlight colors
-	for i = 1, 10 do
-		local color = string.format("#%06x", math.random(0, 0xFFFFFF))
-		local group_name = "RandomHighlight" .. i
-		vim.api.nvim_set_hl(0, group_name, { fg = color }) -- define highlight
-		table.insert(highlights, group_name)
-	end
-end
-
 return Util
