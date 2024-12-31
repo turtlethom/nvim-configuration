@@ -8,6 +8,7 @@ return {
 			keymaps = {
 				["<C-h>"] = false,
 				["<M-h>"] = "actions.select_split",
+        ["g."] = { "actions.toggle_hidden", mode = "n" },
 				["q"] = "actions.close",
 				["<leader>q"] = function()
 					require("oil").close()
