@@ -1,6 +1,7 @@
 return {
 	"stevearc/oil.nvim",
 	dependencies = { "echasnovski/mini.icons", version = false },
+-- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if prefer nvim-web-devicons
 	config = function()
     local oil = require("oil")
     local imageExts = {

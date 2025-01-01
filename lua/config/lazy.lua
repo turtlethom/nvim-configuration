@@ -22,6 +22,6 @@ require("lazy").setup({
 		require("plugins.bufferline"),
 		{ import = "plugins.lsp" },
 	},
-	install = { colorscheme = { "habamax" } },
+	-- install = { colorscheme = { "habamax" } },
 	checker = { enabled = true }, -- Auto-check for updates
 })
