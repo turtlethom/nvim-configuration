@@ -57,6 +57,16 @@ return {
         capabilities = capabilities,
       })
 
+      -- HTML Language Server
+      lspconfig.html.setup({
+        capabilities = capabilities,
+      })
+
+      -- Emmet Language Server (emmet_ls) - For Emmet Snippets
+      require'lspconfig'.emmet_ls.setup{
+        capabilities = capabilities,
+      }
+
       -- Python (pylsp) Server
       -- lspconfig.pyright.setup({
       --      capabilities = capabilities,
