@@ -13,6 +13,7 @@ require("lazy").setup({
 		require("plugins.tmux-navigator"),
 		require("plugins.treesitter"),
 		require("plugins.plenary"),
+    require("plugins.noice"),
 		require("plugins.telescope"),
 		require("plugins.dressing"),
 		require("plugins.lualine"),

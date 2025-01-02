@@ -42,7 +42,7 @@ return {
                 -- vim.api.nvim_get_runtime_file("", true), -- Load Neovim runtime files
                 [vim.fn.expand("$VIMRUNTIME/lua")] = true,
                 [vim.fn.stdpath("config") .. "/lua"] = true,
-                [vim.fn.stdpath("data") .. "/lazy"] = true,
+                -- [vim.fn.stdpath("data") .. "/lazy"] = true,
               },
             },
             telemetry = {
@@ -54,6 +54,11 @@ return {
 
       -- TypeScript Language Server
       lspconfig.ts_ls.setup({
+        capabilities = capabilities,
+      })
+
+      -- CSS Language Server (cssls)
+      lspconfig.cssls.setup({
         capabilities = capabilities,
       })
 
