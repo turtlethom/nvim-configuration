@@ -12,9 +12,9 @@ keymap.set("i", "jk", "<Esc>", opts)
 keymap.set("v", "<leader>x", "<Esc>", opts)
 
 -- Handle System Clipboard Copy
-keymap.set("n", "<leader>y", "\"+y")
-keymap.set("n", "<leader>Y", "\"+Y")
-keymap.set("v", "<leader>y", "\"+y")
+keymap.set("n", "<leader>y", '"+y')
+keymap.set("n", "<leader>Y", '"+Y')
+keymap.set("v", "<leader>y", '"+y')
 
 -- Move Faster In Normal Mode
 keymap.set("n", "J", "5j", opts)
@@ -31,7 +31,7 @@ keymap.set("n", "<C-/>/", "gcc", { desc = "Comment out line(s) of code" })
 keymap.set("n", "<Leader>w", ":update<Return>", opts)
 keymap.set("n", "<Leader>q", function()
 	vim.cmd("bw!")
-  vim.cmd("q!")
+	vim.cmd("q!")
 	-- vim.cmd("Dashboard")
 end, opts)
 keymap.set("n", "<Leader>Q", ":q!<Return>", opts)

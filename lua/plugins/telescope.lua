@@ -18,14 +18,16 @@ return {
 					i = {
 						["<C-k>"] = actions.move_selection_previous, -- move to prev result
 						["<C-j>"] = actions.move_selection_next, -- move to next result
-						["<leader>q"] = actions.close,
+						["<leader>x"] = actions.close,
 					},
 				},
 			},
 		})
 		-- Set Keymaps
 		vim.keymap.set("n", "<leader>ff", require("telescope.builtin").find_files, { desc = "Fuzzy find files in cwd" })
+		vim.keymap.set("n", "<leader>bf", require("telescope.builtin").current_buffer_fuzzy_find, { desc = "Fuzzy find files in cwd" })
 		vim.keymap.set("n", "<leader>fs", require("telescope.builtin").live_grep, { desc = "Find string in cwd" })
+    vim.keymap.set("n", "<leader>ht", require("telescope.builtin").help_tags, { desc = "Find all :help files" })
 	end,
   },
   {
