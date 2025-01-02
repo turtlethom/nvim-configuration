@@ -19,6 +19,7 @@ require("lazy").setup({
 		require("plugins.lualine"),
 		require("plugins.themes.sonokai-theme"),
 		require("plugins.oil"),
+    require("plugins.git-integration"),
 		require("plugins.todo-comments"),
 		require("plugins.bufferline"),
 		{ import = "plugins.lsp" },
