@@ -52,6 +52,8 @@ return {
         },
       })
 
+      -- Bash Language Server
+
       -- TypeScript Language Server
       lspconfig.ts_ls.setup({
         capabilities = capabilities,
@@ -71,11 +73,6 @@ return {
       require'lspconfig'.emmet_ls.setup{
         capabilities = capabilities,
       }
-
-      -- Python (pylsp) Server
-      -- lspconfig.pyright.setup({
-      --      capabilities = capabilities,
-      -- })
 
       -- Python (Jedi) Language Server
       lspconfig.jedi_language_server.setup({})
