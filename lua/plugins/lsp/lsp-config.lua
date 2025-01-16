@@ -70,7 +70,12 @@ return {
       })
 
       -- Emmet Language Server (emmet_ls) - For Emmet Snippets
-      require'lspconfig'.emmet_ls.setup{
+      lspconfig.emmet_ls.setup{
+        capabilities = capabilities,
+      }
+
+      -- Assembly Language Server (asm_lsp)
+      lspconfig.asm_lsp.setup{
         capabilities = capabilities,
       }
 
