@@ -11,14 +11,42 @@ return {
           },
         },
       })
+      -- Auto-install essential tools
+      local mr = require("mason-registry")
+      local tools = {
+        "stylua",
+        "prettier",
+        "shfmt",
+      }
+
+      for _, tool in ipairs(tools) do
+        local ok, package = pcall(mr.get_package, tool)
+        if ok and not package:is_installed() then
+          package:install()
+        end
+      end
     end,
   },
   {
     "williamboman/mason-lspconfig.nvim",
     lazy = false,
-    opts = {
-      auto_install = true,
-    },
+    config = function()
+      require("mason-lspconfig").setup({
+        ensure_installed = {
+          "lua_ls",
+          "bashls",
+          "ts_ls",
+          "cssls",
+          "html",
+          "emmet_ls",
+          "asm_lsp",
+          "jedi_language_server",
+          "svelte",
+          "powershell_es",
+        },
+        automatic_installation = true,
+      })
+    end,
   },
   {
     "neovim/nvim-lspconfig",
@@ -39,10 +67,8 @@ return {
             },
             workspace = {
               library = {
-                -- vim.api.nvim_get_runtime_file("", true), -- Load Neovim runtime files
                 [vim.fn.expand("$VIMRUNTIME/lua")] = true,
                 [vim.fn.stdpath("config") .. "/lua"] = true,
-                -- [vim.fn.stdpath("data") .. "/lazy"] = true,
               },
             },
             telemetry = {
@@ -53,8 +79,11 @@ return {
       })
 
       -- Bash Language Server
+      lspconfig.bashls.setup({
+        capabilities = capabilities,
+      })
 
-      -- TypeScript Language Server
+      -- TypeScript Language Server (corrected)
       lspconfig.ts_ls.setup({
         capabilities = capabilities,
       })
@@ -69,22 +98,23 @@ return {
         capabilities = capabilities,
       })
 
-      -- Emmet Language Server (emmet_ls) - For Emmet Snippets
-      lspconfig.emmet_ls.setup{
+      -- Emmet Language Server (emmet_ls)
+      lspconfig.emmet_ls.setup({
         capabilities = capabilities,
-      }
+      })
 
       -- Assembly Language Server (asm_lsp)
-      lspconfig.asm_lsp.setup{
+      lspconfig.asm_lsp.setup({
         capabilities = capabilities,
-      }
+      })
 
       -- Python (Jedi) Language Server
       lspconfig.jedi_language_server.setup({})
+
       -- Svelte Language Server
       lspconfig.svelte.setup({
         capabilities = capabilities,
-        on_attack = function(client, _)
+        on_attach = function(client, _)
           vim.api.nvim_create_autocmd("BufWritePost", {
             pattern = { "*.js", "*.ts" },
             callback = function(ctx)
