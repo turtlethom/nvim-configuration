@@ -46,17 +46,17 @@ return {
           documentation = cmp.config.window.bordered(),
         },
         mapping = cmp.mapping.preset.insert({
-          ["<Tab>"] = cmp.mapping.select_next_item(),
-          ["<S-Tab>"] = cmp.mapping.select_prev_item(),
-          -- ["<C-Space>"] = cmp.mapping.complete(),
+          ["<C-j>"] = cmp.mapping.select_next_item(),
+          ["<C-k>"] = cmp.mapping.select_prev_item(),
+          ["<C-Space>"] = cmp.mapping.complete(),
           ["<C-e>"] = cmp.mapping.abort(),
-          ["<C-Space>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+          ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
         }),
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
           { name = "luasnip" }, -- snippets
           { name = "path" }, -- file system paths
-          -- { name = "buffer" }, -- text within buffer
+          { name = "buffer" }, -- text within buffer
         }),
         formatting = {
           format = lspkind.cmp_format({
@@ -77,8 +77,8 @@ return {
       cmp.setup.cmdline(":", {
         mapping = cmp.mapping.preset.cmdline(),
         sources = cmp.config.sources({
-          { name = "cmdline" }, -- Place cmdline first for better command completion
           { name = "path" },
+          { name = "cmdline" }, -- Place cmdline first for better command completion
         }),
       })
     end,
