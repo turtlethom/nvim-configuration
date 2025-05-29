@@ -22,6 +22,7 @@ require("lazy").setup({
     require("plugins.git-integration"),
     require("plugins.todo-comments"),
     require("plugins.bufferline"),
+    require("plugins.vimtex"),
     { import = "plugins.lsp" },
   },
   -- install = { colorscheme = { "habamax" } },

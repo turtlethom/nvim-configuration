@@ -20,3 +20,9 @@ vim.api.nvim_create_autocmd("FileType", {
 for i = 1, 9 do
 	vim.api.nvim_set_keymap("n", "<leader>t" .. i, ':lua require("bufferline").go_to(' .. i .. ", true)<CR>", opts)
 end
+
+-- Keybinds For VimText
+vim.api.nvim_set_keymap('n', '<leader>ll', '<plug>(vimtex-compile)', {noremap = false})
+vim.api.nvim_set_keymap('n', '<leader>lv', '<plug>(vimtex-view)', {noremap = false})
+vim.api.nvim_set_keymap('n', '<leader>lc', '<plug>(vimtex-clean)', {noremap = false})
+vim.api.nvim_set_keymap('n', '<leader>lt', '<plug>(vimtex-toc-open)', {noremap = false})
