@@ -54,7 +54,12 @@ return {
         }),
         sources = cmp.config.sources({
           { name = "luasnip" }, -- snippets
-          { name = "nvim_lsp" },
+          {
+            name = "nvim_lsp",
+            entry_filter = function(entry, ctx)
+              return require("cmp").lsp.CompletionItemKind.Text ~= entry:get_kind()
+            end,
+          },
           { name = "path" }, -- file system paths
           { name = "buffer" }, -- text within buffer
         }),
