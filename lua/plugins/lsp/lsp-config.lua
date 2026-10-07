@@ -13,11 +13,7 @@ return {
       })
       -- Auto-install essential tools
       local mr = require("mason-registry")
-      local tools = {
-        "stylua",
-        "prettier",
-        "shfmt",
-      }
+      local tools = { "stylua", "prettier", "shfmt" }
 
       for _, tool in ipairs(tools) do
         local ok, package = pcall(mr.get_package, tool)
@@ -51,20 +47,22 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
-      local lspconfig = require("lspconfig")
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+      -- Helper to set up LSP servers
+      local function setup(server_name, opts)
+        opts = vim.tbl_extend("force", {
+          capabilities = capabilities,
+        }, opts or {})
+        vim.lsp.config(server_name, opts)
+      end
+
       -- Lua Language Server
-      lspconfig.lua_ls.setup({
-        capabilities = capabilities,
+      setup("lua_ls", {
         settings = {
           Lua = {
-            diagnostics = {
-              globals = { "vim", "love" },
-            },
-            completion = {
-              callSnippet = "Replace",
-            },
+            diagnostics = { globals = { "vim", "love" } },
+            completion = { callSnippet = "Replace" },
             workspace = {
               library = {
                 [vim.fn.expand("$VIMRUNTIME/lua")] = true,
@@ -72,49 +70,34 @@ return {
                 [vim.fn.expand("~/.local/share/lua-addons/library")] = true,
               },
             },
-            telemetry = {
-              enable = false,
-            },
+            telemetry = { enable = false },
           },
         },
       })
 
       -- Bash Language Server
-      lspconfig.bashls.setup({
-        capabilities = capabilities,
-      })
+      setup("bashls")
 
-      -- TypeScript Language Server (corrected)
-      lspconfig.ts_ls.setup({
-        capabilities = capabilities,
-      })
+      -- TypeScript Language Server
+      setup("ts_ls")
 
-      -- CSS Language Server (cssls)
-      lspconfig.cssls.setup({
-        capabilities = capabilities,
-      })
+      -- CSS Language Server
+      setup("cssls")
 
       -- HTML Language Server
-      lspconfig.html.setup({
-        capabilities = capabilities,
-      })
+      setup("html")
 
-      -- Emmet Language Server (emmet_ls)
-      lspconfig.emmet_ls.setup({
-        capabilities = capabilities,
-      })
+      -- Emmet Language Server
+      setup("emmet_ls")
 
-      -- Assembly Language Server (asm_lsp)
-      lspconfig.asm_lsp.setup({
-        capabilities = capabilities,
-      })
+      -- Assembly Language Server
+      setup("asm_lsp")
 
       -- Python (Jedi) Language Server
-      lspconfig.jedi_language_server.setup({})
+      setup("jedi_language_server")
 
       -- Svelte Language Server
-      lspconfig.svelte.setup({
-        capabilities = capabilities,
+      setup("svelte", {
         on_attach = function(client, _)
           vim.api.nvim_create_autocmd("BufWritePost", {
             pattern = { "*.js", "*.ts" },
@@ -126,19 +109,18 @@ return {
       })
 
       -- Powershell Language Server
-      lspconfig.powershell_es.setup({
-        capabilities = capabilities,
+      setup("powershell_es", {
         filetypes = { "ps1", "psm1", "psd1" },
         bundle_path = "~/.local/share/nvim/mason/packages/powershell-editor-services",
         settings = { powershell = { codeFormatting = { Preset = "OTBS" } } },
-        init_options = {
-          enableProfileLoading = false,
-        },
+        init_options = { enableProfileLoading = false },
       })
 
+      -- Keymaps
       vim.keymap.set("n", "<leader>gh", vim.lsp.buf.hover, {})
       vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
       vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { noremap = true, silent = true })
     end,
   },
 }
+
