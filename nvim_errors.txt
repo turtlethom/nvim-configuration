@@ -1,0 +1,26 @@
+
+
+vim.tbl_flatten is deprecated. Run ":checkhealth vim.deprecated" for more information
+[mason-lspconfig.nvim] installing bashls
+[mason-lspconfig.nvim] installing ts_ls
+[mason-lspconfig.nvim] installing cssls
+[mason-lspconfig.nvim] installing html
+[mason-lspconfig.nvim] installing emmet_ls
+[mason-lspconfig.nvim] installing asm_lsp
+[mason-lspconfig.nvim] installing jedi_language_server
+[mason-lspconfig.nvim] installing svelte
+[mason-lspconfig.nvim] installing powershell_es
+Decoration provider "start" (ns=nvim.treesitter.highlighter):
+Lua: ...l/share/nvim/runtime/lua/vim/treesitter/languagetree.lua:215: ...nvim-treesitter/lua/nvim-treesitter/query_predicates.lua:223: attempt to call method 'range' (a nil value)
+stack traceback:
+	[C]: in function 'f'
+	...l/share/nvim/runtime/lua/vim/treesitter/languagetree.lua:215: in function 'tcall'
+	...l/share/nvim/runtime/lua/vim/treesitter/languagetree.lua:596: in function 'parse'
+	...al/share/nvim/runtime/lua/vim/treesitter/highlighter.lua:591: in function <...al/share/nvim/runtime/lua/vim/treesitter/highlighter.lua:568>
+	[C]: at 0x602e3317c3f0
+	[C]: in function 'pcall'
+	.../share/nvim/lazy/nvim-notify/lua/notify/windows/init.lua:321: in function '_advance_win_state'
+	.../share/nvim/lazy/nvim-notify/lua/notify/windows/init.lua:181: in function '_update_window'
+	.../share/nvim/lazy/nvim-notify/lua/notify/windows/init.lua:37: in function <.../share/nvim/lazy/nvim-notify/lua/notify/windows/init.lua:30>
+	[C]: in function 'pcall'
+	.../share/nvim
