@@ -35,7 +35,7 @@ return {
 			},
 			-- Optional: on_attach to set format-on-save or diagnostics
 			on_attach = function(client, bufnr)
-				if client.supports_method("textDocument/formatting") then
+				if client:supports_method("textDocument/formatting") then
 					vim.api.nvim_buf_set_keymap(
 						bufnr,
 						"n",
