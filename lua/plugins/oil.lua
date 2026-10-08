@@ -19,8 +19,8 @@ return {
       if entry and entry.type == 'file' then
         local ext = entry.name:match("^.+%.([a-zA-Z0-9]+)$")
         if ext and vim.tbl_contains(imageExts, ext:lower()) then
-          -- Use "xdg-open" to handle images
-          vim.fn.jobstart({ "xdg-open", oil.get_current_dir() .. entry.name }, { detach = true })
+          -- Open images with the OS default viewer
+          vim.ui.open(oil.get_current_dir() .. entry.name)
           return
         end
       end
