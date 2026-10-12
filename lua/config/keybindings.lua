@@ -25,7 +25,7 @@ keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- Commenting Remap
-keymap.set("n", "<C-/>/", "gcc", { desc = "Comment out line(s) of code" })
+keymap.set("n", "<C-/>", "gcc", { remap = true, desc = "Comment out line(s) of code" })
 
 -- Saving & Quitting Files
 keymap.set("n", "<Leader>w", ":update<Return>", opts)
@@ -43,7 +43,7 @@ keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" }) -- decremen
 -- Window Management
 keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
 keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" }) -- split window horizontally
-keymap.set("n", "<leader>se", "<C-w>", { desc = "Make splits equal size" }) -- make split windows equal width & height
+keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make splits equal size" }) -- make split windows equal width & height
 keymap.set("n", "<leader>sx", "<CMD>close<CR>", { desc = "Close current split" }) -- close current split window
 
 keymap.set("n", "<leader>to", "<CMD>tabnew<CR>", { desc = "Open new tab" }) -- open new tab
