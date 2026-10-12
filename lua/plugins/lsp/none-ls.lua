@@ -5,7 +5,6 @@ return {
 	},
 	config = function()
 		local null_ls = require("null-ls")
-		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 		local prettier_rules = {
 			extra_args = {
 				"--print-width",
@@ -24,11 +23,9 @@ return {
 		}
 
 		null_ls.setup({
-			capabilities = capabilities,
 			sources = {
 				null_ls.builtins.formatting.stylua,
 				null_ls.builtins.formatting.prettier.with(prettier_rules),
-				null_ls.builtins.completion.spell,
 				null_ls.builtins.formatting.shfmt,
 				null_ls.builtins.formatting.gofumpt.with({ extra_args = { "-s" } }), -- Optional: simplify imports
 				null_ls.builtins.formatting.goimports_reviser,

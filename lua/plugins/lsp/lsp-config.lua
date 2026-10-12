@@ -40,7 +40,6 @@ return {
           "svelte",
           "powershell_es",
         },
-        automatic_installation = true,
       })
     end,
   },
@@ -97,19 +96,11 @@ return {
       setup("jedi_language_server")
 
       -- Svelte Language Server
-      setup("svelte", {
-        on_attach = function(client, _)
-          vim.api.nvim_create_autocmd("BufWritePost", {
-            pattern = { "*.js", "*.ts" },
-            callback = function(ctx)
-              client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
-            end,
-          })
-        end,
-      })
+      setup("svelte")
 
       -- Powershell Language Server
       setup("powershell_es", {
+        bundle_path = vim.fn.stdpath("data") .. "/mason/packages/powershell-editor-services",
         filetypes = { "ps1", "psm1", "psd1" },
         settings = { powershell = { codeFormatting = { Preset = "OTBS" } } },
         init_options = { enableProfileLoading = false },
