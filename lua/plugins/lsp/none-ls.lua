@@ -37,7 +37,7 @@ return {
 						bufnr,
 						"n",
 						"<leader>gf",
-						"<cmd>lua vim.lsp.buf.format({ async = true })<CR>",
+						"<cmd>lua vim.lsp.buf.format({ async = true, name = 'null-ls' })<CR>",
 						{ noremap = true, silent = true }
 					)
 				end
