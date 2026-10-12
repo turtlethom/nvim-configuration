@@ -1,20 +1,31 @@
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-	vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+  vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
 end
 vim.opt.rtp:prepend(lazypath)
 
 -- Load plugins using Lazy.nvim
 require("lazy").setup({
-	spec = {
-		{ import = "plugins.init" },
-		{ import = "plugins.ui" },
-		{ import = "plugins.lsp" },
-		{ import = "plugins.format" },
-		{ import = "plugins.misc" },
-	},
-	install = { colorscheme = { "habamax" } },
-	checker = { enabled = true }, -- Auto-check for updates
+  spec = {
+    require("plugins.colorizer"),
+    require("plugins.plenary"),
+    require("plugins.tmux-navigator"),
+    require("plugins.treesitter"),
+    require("plugins.noice"),
+    require("plugins.telescope"),
+    require("plugins.lualine"),
+    require("plugins.themes.sonokai-theme"),
+    require("plugins.oil"),
+    require("plugins.git-integration"),
+    require("plugins.todo-comments"),
+    require("plugins.bufferline"),
+    require("plugins.vimtex"),
+    require("plugins.trouble"),
+    -- require("plugins.render-markdown"),
+    { import = "plugins.lsp" },
+  },
+  -- install = { colorscheme = { "habamax" } },
+  checker = { enabled = true }, -- Auto-check for updates
 })

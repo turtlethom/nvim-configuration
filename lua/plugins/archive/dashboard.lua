@@ -2,13 +2,20 @@ local assets_path = vim.fn.stdpath("config") .. "/assets" -- Grabs Neovim's conf
 local ascii_art_path = assets_path .. "/colorized.txt"
 local LINES_PER_FILE = 10
 
--- local stats = require("lazy").stats()
--- local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-
--- "",
--- "-- ⚡ LazyVim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins   in " .. ms .. "ms --",
--- "",
-
+local header = {
+	-- "                                                                                        ",
+	-- "                                                                                        ",
+	-- "                                                                                        ",
+	-- "████████╗██╗   ██╗███████╗████████╗██╗     ███████╗████████╗██╗  ██╗ ██████╗ ███╗   ███╗",
+	-- "╚══██╔══╝██║   ██║██╔══██║╚══██╔══╝██║     ██╔════╝╚══██╔══╝██║  ██║██╔═══██╗████╗ ████║",
+	-- "   ██║   ██║   ██║██████╔╝   ██║   ██║     █████╗     ██║   ███████║██║   ██║██╔████╔██║",
+	-- "   ██║   ██║   ██║██╔══██╗   ██║   ██║     ██╔══╝     ██║   ██╔══██║██║   ██║██║╚██╔╝██║",
+	-- "   ██║   ╚██████╔╝██║  ██║   ██║   ███████╗███████╗   ██║   ██║  ██║╚██████╔╝██║ ╚═╝ ██║",
+	-- "   ╚═╝    ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚══════╝╚══════╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝",
+	-- "                                                                                        ",
+	-- "                                                                                        ",
+	-- "                                                                                        ",
+}
 local center = {
 	{
 		desc = "Find File ",
@@ -110,12 +117,12 @@ vim.api.nvim_create_autocmd("FileType", {
 return {
 	{
 		"nvimdev/dashboard-nvim",
+    event = "VimEnter",
 		opts = {
 			theme = "doom",
 			config = {
-				header = nil,
+				header = header,
 				center = center,
-				-- footer = {},
 			},
 			preview = preview,
 		},

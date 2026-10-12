@@ -18,6 +18,8 @@ opt.autoindent = true -- Copy the indentation from the current line when startin
 opt.wrap = false -- Disable line wrapping
 
 -- Search settings
+opt.hlsearch = false -- Don't keep matches highlighted after a search
+opt.incsearch = true -- Allow more complex searches
 opt.ignorecase = true -- Ignore case when searching
 opt.smartcase = true -- Override 'ignorecase' if search contains uppercase letters
 
@@ -43,5 +45,5 @@ opt.swapfile = false -- Prevent creating swap files
 
 -- Code folding using nvim-treesitter
 opt.foldmethod = "expr"
-opt.foldexpr = "nvim_treesitter#foldexpr()"
+opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 opt.foldlevel = 20
