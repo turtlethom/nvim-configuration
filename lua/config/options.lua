@@ -18,7 +18,7 @@ opt.autoindent = true -- Copy the indentation from the current line when startin
 opt.wrap = false -- Disable line wrapping
 
 -- Search settings
-opt.hlsearch = false -- Only highlight for current word
+opt.hlsearch = false -- Don't keep matches highlighted after a search
 opt.incsearch = true -- Allow more complex searches
 opt.ignorecase = true -- Ignore case when searching
 opt.smartcase = true -- Override 'ignorecase' if search contains uppercase letters

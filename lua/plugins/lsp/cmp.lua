@@ -24,7 +24,6 @@ return {
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
     },
-    event = "InsertEnter",
     config = function()
       -- Set up nvim-cmp.
       local cmp = require("cmp")

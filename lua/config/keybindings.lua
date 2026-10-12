@@ -1,12 +1,6 @@
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
--- Disabling Leader Key In Insert Mode
-keymap.set("i", "<space>", "<space>", opts)
-
--- Remove Highlighting
-keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
-
 -- Movement Remappings
 keymap.set("i", "jk", "<Esc>", opts)
 keymap.set("v", "<leader>x", "<Esc>", opts)
