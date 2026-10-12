@@ -45,5 +45,5 @@ opt.swapfile = false -- Prevent creating swap files
 
 -- Code folding using nvim-treesitter
 opt.foldmethod = "expr"
-opt.foldexpr = "nvim_treesitter#foldexpr()"
+opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 opt.foldlevel = 20
