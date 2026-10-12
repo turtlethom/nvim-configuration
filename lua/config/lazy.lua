@@ -15,7 +15,6 @@ require("lazy").setup({
     require("plugins.treesitter"),
     require("plugins.noice"),
     require("plugins.telescope"),
-    require("plugins.dressing"),
     require("plugins.lualine"),
     require("plugins.themes.sonokai-theme"),
     require("plugins.oil"),
