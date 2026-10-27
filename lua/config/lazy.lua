@@ -23,7 +23,7 @@ require("lazy").setup({
     require("plugins.bufferline"),
     require("plugins.vimtex"),
     require("plugins.trouble"),
-    -- require("plugins.render-markdown"),
+    require("plugins.render-markdown"),
     { import = "plugins.lsp" },
   },
   -- install = { colorscheme = { "habamax" } },
